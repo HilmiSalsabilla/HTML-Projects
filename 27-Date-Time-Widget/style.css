@@ -1,0 +1,316 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ========== Theme Toggle ========== */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* ===== Body Styling ===== */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #0f0f0f, #1c1c1c);
+    color: #e6e6e6;
+    overflow: hidden;
+    position: relative;
+    transition: background 1.2s ease, color 1.2s ease;
+}
+
+/* ===== Glare Effect ===== */
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(
+        circle at center,
+        rgba(160, 160, 160, 0.15),
+        rgba(120, 120, 120, 0.08) 70%,
+        transparent 100%
+    );
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(50px);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: var(--glare-opacity, 0.5);
+    animation: glarePulse 8s ease-in-out infinite alternate;
+}
+
+/* ===== Container ===== */
+.container {
+    text-align: center;
+    background: rgba(40, 40, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 
+        0 0 30px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(120%);
+    z-index: 1;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+/* ===== Clock Display ===== */
+.clock-display {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    letter-spacing: 4px;
+    text-shadow: 
+        0 0 15px rgba(200, 200, 200, 0.3),
+        0 0 30px rgba(160, 160, 160, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    transition: color 1.2s ease, text-shadow 1.2s ease;
+}
+
+/* ===== Date Display ===== */
+.date-display {
+    font-size: 1.2rem;
+    color: #a8a8a8;
+    text-shadow: 
+        0 0 10px rgba(200, 200, 200, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: color 1.2s ease;
+}
+
+.container, .clock-display, .date-display {
+    transition: all 0.8s ease;
+}
+
+/* ===== Light Theme (Monochrome Grey) ===== */
+@media (prefers-color-scheme: light) {
+    body {
+        background: radial-gradient(circle at center, #e8e8e8, #d0d0d0);
+        color: #2a2a2a;
+    }
+    
+    body::before {
+        background: radial-gradient(
+            circle at center,
+            rgba(100, 100, 100, 0.12),
+            rgba(80, 80, 80, 0.06) 70%,
+            transparent 100%
+        );
+        opacity: 0.6;
+    }
+    
+    .container {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 
+            0 0 25px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    
+    .clock-display {
+        color: #1a1a1a;
+        text-shadow:
+            0 0 12px rgba(80, 80, 80, 0.2),
+            0 0 25px rgba(100, 100, 100, 0.12),
+            0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+    
+    .date-display {
+        color: #5a5a5a;
+        text-shadow: 
+            0 0 8px rgba(100, 100, 100, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* ===== Dark Theme (Monochrome Grey) ===== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: radial-gradient(circle at center, #0f0f0f, #1c1c1c);
+        color: #e6e6e6;
+    }
+    
+    body::before {
+        background: radial-gradient(
+            circle at center,
+            rgba(160, 160, 160, 0.15),
+            rgba(120, 120, 120, 0.08) 70%,
+            transparent 100%
+        );
+        opacity: 0.5;
+    }
+    
+    .container {
+        background: rgba(40, 40, 40, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 0 30px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    
+    .clock-display {
+        color: #f0f0f0;
+        text-shadow:
+            0 0 15px rgba(200, 200, 200, 0.3),
+            0 0 30px rgba(160, 160, 160, 0.15),
+            0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+    
+    .date-display {
+        color: #a8a8a8;
+        text-shadow: 
+            0 0 10px rgba(200, 200, 200, 0.1),
+            0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glarePulse {
+    from {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .clock-display {
+        font-size: 2.8rem;
+    }
+
+    .date-display {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 28px 36px;
+    }
+
+    body::before {
+        width: 250px;
+        height: 250px;
+        filter: blur(25px);
+    }
+
+    #theme-toggle {
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+
+/* ===== Manual Theme Classes ===== */
+body.light-theme {
+    background: radial-gradient(circle at center, #e8e8e8, #d0d0d0) !important;
+    color: #2a2a2a !important;
+}
+
+body.light-theme::before {
+    background: radial-gradient(
+        circle at center,
+        rgba(100, 100, 100, 0.12),
+        rgba(80, 80, 80, 0.06) 70%,
+        transparent 100%
+    ) !important;
+    opacity: 0.6 !important;
+}
+
+body.light-theme .container {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 
+        0 0 25px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-theme .clock-display {
+    color: #1a1a1a !important;
+}
+
+body.light-theme .date-display {
+    color: #5a5a5a !important;
+}
+
+body.light-theme #theme-toggle {
+    background: transparent;
+    border: none;
+}
+
+/* ===== Manual Theme Classes ===== */
+body.dark-theme {
+    background: radial-gradient(circle at center, #0f0f0f, #1c1c1c) !important;
+    color: #e6e6e6 !important;
+}
+
+body.dark-theme::before {
+    background: radial-gradient(
+        circle at center,
+        rgba(160, 160, 160, 0.15),
+        rgba(120, 120, 120, 0.08) 70%,
+        transparent 100%
+    ) !important;
+    opacity: 0.5 !important;
+}
+
+body.dark-theme .container {
+    background: rgba(40, 40, 40, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 
+        0 0 30px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-theme .clock-display {
+    color: #f0f0f0 !important;
+}
+
+body.dark-theme .date-display {
+    color: #a8a8a8 !important;
+}
+
+body.dark-theme #theme-toggle {
+    background: transparent;
+    border: none;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Image Container -->
+        <div class="image-container">
+            <img src="img/image1.png" id="content1" class="active">
+            <img src="img/image2.png" id="content2">
+            <img src="img/image3.png" id="content3">
+            <img src="img/image4.png" id="content4">
+            <img src="img/image5.png" id="content5">
+        </div>
+
+        <!-- Dot Navigation -->
+        <div class="dot-container">
+            <button type="button" onclick="dot(1)"></button>
+            <button type="button" onclick="dot(2)"></button>
+            <button type="button" onclick="dot(3)"></button>
+            <button type="button" onclick="dot(4)"></button>
+            <button type="button" onclick="dot(5)"></button>
+        </div>
+
+        <button id="prev" type="button" onclick="prev()">&lt</button>
+        <button id="next" type="button" onclick="next()">&gt</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

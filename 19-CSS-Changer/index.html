@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Changer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Change the CSS of the image using the sliders!</h1>
+        <span class="heading">JavaScript</span>
+
+        <div class="css-controller">
+            <!-- Base Color -->
+            <label for="base">Base Color</label>
+            <input 
+                type="color" 
+                name="base" 
+                id="base" 
+                value="#ff0000"
+            >
+
+            <!-- Width -->
+            <label for="width">Width</label>
+            <input 
+                type="range" 
+                name="width" 
+                id="width" 
+                min="0" 
+                max="100" 
+                value="50" 
+                data-sizing="%"
+            >
+
+            <!-- Border-Radius -->
+            <label for="border-radius">Border-Radius</label>
+            <input 
+                type="range" 
+                name="border-radius" 
+                id="border-radius" 
+                min="0" 
+                max="100" 
+                value="50" 
+                data-sizing="px"
+            >
+
+            <!-- Padding -->
+            <label for="padding">Padding</label>
+            <input 
+                type="range" 
+                name="padding" 
+                id="padding" 
+                min="10" 
+                max="200" 
+                value="0" 
+                data-sizing="px"
+            >
+
+            <!-- Blur -->
+            <label for="blur">Blur</label>
+            <input 
+                type="range" 
+                name="blur" 
+                id="blur" 
+                min="0" 
+                max="25" 
+                value="0" 
+                data-sizing="px"
+            >
+
+            <!-- Image -->
+            <img 
+                src="https://images.unsplash.com/photo-1758720232954-9c7796c16ad1?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzOXx8fGVufDB8fHx8fA%3D%3D" 
+                alt="Image fron Unsplash" srcset="">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

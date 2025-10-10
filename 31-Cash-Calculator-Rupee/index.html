@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupee Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Rupee Calculator</h1>
+
+        <!-- Cash Rows -->
+        <div class="row">
+            <img src="imgs/two_thousand_note.png" alt="Rs. 2000 Note">
+            <input type="number" id="et2000" class="cash-input" placeholder="Enter number of Rs. 2000 notes">
+            <span id="txt2000" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/five_hundred_note.png" alt="Rs. 500 Note">
+            <input type="number" id="et500" class="cash-input" placeholder="Enter number of Rs. 500 notes">
+            <span id="txt500" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/two_hundred_note.png" alt="Rs. 200 Note">
+            <input type="number" id="et200" class="cash-input" placeholder="Enter number of Rs. 200 notes">
+            <span id="txt200" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/one_hundred.png" alt="Rs. 100 Note">
+            <input type="number" id="et100" class="cash-input" placeholder="Enter number of Rs. 100 notes">
+            <span id="txt100" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/fifty_note.png" alt="Rs. 50 Note">
+            <input type="number" id="et50" class="cash-input" placeholder="Enter number of Rs. 50 notes">
+            <span id="txt50" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/twenty_note.png" alt="Rs. 20 Note">
+            <input type="number" id="et20" class="cash-input" placeholder="Enter number of Rs. 20 notes">
+            <span id="txt20" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/ten_note.png" alt="Rs. 10 Note">
+            <input type="number" id="et10" class="cash-input" placeholder="Enter number of Rs. 10 notes">
+            <span id="txt10" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/five_note.png" alt="Rs. 5 Note">
+            <input type="number" id="et5" class="cash-input" placeholder="Enter number of Rs. 5 notes">
+            <span id="txt5" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/two_note.png" alt="Rs. 2 Note">
+            <input type="number" id="et2" class="cash-input" placeholder="Enter number of Rs. 2 notes">
+            <span id="txt2" class="cash-text">0</span>
+        </div>
+
+        <div class="row">
+            <img src="imgs/one_note.png" alt="Rs. 1 Note">
+            <input type="number" id="et1" class="cash-input" placeholder="Enter number of Rs. 1 notes">
+            <span id="txt1" class="cash-text">0</span>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="row">
+            <button id="btnReset">Reset</button>
+        </div>
+
+        <!-- Result -->
+        <div class="row result-part">
+            <span id="txtFinalCash" class="total-text">Total Cash: 0</span>
+            <span id="txtFinalCashInWords" class="total-words">Zero</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

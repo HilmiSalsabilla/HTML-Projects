@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="poll-container">
+        <h1>🚀 Developer Poll 2025</h1>
+        <h2>What's your favorite programming language?</h2>
+
+        <form id="pollForm">
+            <label>
+                <input type="radio" name="poll" value="JavaScript"> JavaScript
+            </label>
+            <label>
+                <input type="radio" name="poll" value="Python"> Python
+            </label>
+            <label>
+                <input type="radio" name="poll" value="Java"> Java
+            </label>
+            <label>
+                <input type="radio" name="poll" value="C++"> C++
+            </label>
+        </form>
+
+        <button id="submitBtn">Submit Vote</button>
+
+        <div id="result"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

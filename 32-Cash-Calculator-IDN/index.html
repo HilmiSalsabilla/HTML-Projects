@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Uang Rupiah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Kalkulator Uang Rupiah</h1>
+
+        <!-- Daftar pecahan -->
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Indonesia_2016_100000IDR.jpg/330px-Indonesia_2016_100000IDR.jpg" alt="100000">
+            <input type="number" id="n100k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp100.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Indonesia_2016_50000r_o.jpg/330px-Indonesia_2016_50000r_o.jpg" alt="50000">
+            <input type="number" id="n50k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp50.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Indonesia_2016_20000r_o.jpg/330px-Indonesia_2016_20000r_o.jpg" alt="20000">
+            <input type="number" id="n20k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp20.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Indonesia_2016_10000r_o.jpg/330px-Indonesia_2016_10000r_o.jpg" alt="10000">
+            <input type="number" id="n10k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp10.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Indonesia_2016_5000r_o.jpg/330px-Indonesia_2016_5000r_o.jpg" alt="5000">
+            <input type="number" id="n5k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp5.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Indonesia_2016_2000r_o.jpg/330px-Indonesia_2016_2000r_o.jpg" alt="2000">
+            <input type="number" id="n2k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp2.000</div>
+        </div>
+
+        <div class="row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Indonesia_2016_1000r_o.jpg/330px-Indonesia_2016_1000r_o.jpg" alt="1000">
+            <input type="number" id="n1k" placeholder="Jumlah lembar">
+            <div class="cash-text">Rp1.000</div>
+        </div>
+
+        <!-- Tombol aksi -->
+        <div class="btn-group">
+            <button id="resetBtn" class="reset">Reset</button>
+        </div>
+
+        <!-- Hasil -->
+        <div class="result-part">
+            <div class="total-text">Total: <span id="totalValue">Rp0</span></div>
+            <div class="total-words" id="totalWords">(nol rupiah)</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

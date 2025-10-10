@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Editor -->
+        <section class="editor">
+            <!-- Blur -->
+            <div class="filter">
+                <label for="blur">Blur</label>
+                <input type="range" min="0" max="5" value="0" step="0.1" id="blur">
+                <span class="range-value" id="blur-value">0px</span>
+            </div>
+
+            <!-- Brightness -->
+            <div class="filter">
+                <label for="brightness">Brightness</label>
+                <input type="range" id="brightness" min="0" max="200" value="100">
+                <span class="range-value">100%</span>
+            </div>
+
+            <!-- Contrast -->
+            <div class="filter">
+                <label for="contrast">Contrast</label>
+                <input type="range" min="0" max="200" value="100" id="contrast">
+                <span class="range-value" id="contrast-value">100%</span>
+            </div>
+
+            <!-- Grayscale -->
+            <div class="filter">
+                <label for="grayscale">Grayscale</label>
+                <input type="range" id="grayscale" min="0" max="100" value="0">
+                <span class="range-value">0%</span>
+            </div>
+
+            <!-- Hue Rotate -->
+            <div class="filter">
+                <label for="hue-rotate">Hue-Rotate</label>
+                <input type="range" min="0" max="360" value="0" id="hue-rotate">
+                <span class="range-value" id="hue-rotate-value">0°</span>
+            </div>
+
+            <!-- Invert -->
+            <div class="filter">
+                <label for="invert">Invert</label>
+                <input type="range" id="invert" min="0" max="100" value="0">
+                <span class="range-value">0%</span>
+            </div>
+
+            <!-- Opacity -->
+            <div class="filter">
+                <label for="opacity">Opacity</label>
+                <input type="range" id="opacity" min="0" max="100" value="100">
+                <span class="range-value">100%</span>
+            </div>
+
+            <!-- Saturate -->
+            <div class="filter">
+                <label for="saturate">Saturate</label>
+                <input type="range" id="saturate" min="0" max="200" value="100">
+                <span class="range-value">100%</span>
+            </div>
+
+            <!-- Sepia -->
+            <div class="filter">
+                <label for="sepia">Sepia</label>
+                <input type="range" min="0" max="100" value="0" id="sepia">
+                <span class="range-value" id="sepia-value">0%</span>
+            </div>
+
+            <!-- Flip Options -->
+            <div class="flip-buttons">
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="no-flip" checked>
+                    <label for="no-flip">No Flip</label>
+                </div>
+
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="flip-x">
+                    <label for="flip-x">Flip Horizontal</label>
+                </div>
+
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="flip-y">
+                    <label for="flip-y">Flip Vertical</label>
+                </div>
+            </div>
+
+            <div class="presets">
+                <button onclick="applyPreset('warm')">Warm</button>
+                <button onclick="applyPreset('cool')">Cool</button>
+                <button onclick="applyPreset('vintage')">Vintage</button>
+                <button onclick="applyPreset('noir')">Noir</button>
+                <button onclick="applyPreset('pop')">Pop</button>
+                <button onclick="applyPreset('dreamy')">Dreamy</button>
+            </div>
+        </section>
+
+        <!-- Preview & Actions -->
+        <section class="result">
+            <figure class="image-container">
+                <img id="chosen-image">
+            </figure>
+            <input type="file" id="upload-button" accept="image/*">
+            
+            <div class="action-buttons">
+                <label for="upload-button">Choose an image</label>
+                <button id="reset-button">Reset Filter</button>
+                <button id="download-button">Download Image</button>
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

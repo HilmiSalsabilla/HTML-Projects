@@ -1,0 +1,169 @@
+/* ====== RESET & GLOBAL ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+/* ====== BODY ====== */
+body {
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #5e17eb, #4361ee, #4cc9f0);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+}
+
+/* ====== CONTAINER ====== */
+.container {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ====== HEADER ====== */
+.header {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* ====== ROW ====== */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 6px 10px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.row:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ====== IMAGES ====== */
+.row img {
+    width: 55px;
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+}
+
+/* ====== INPUT ====== */
+input[type="number"] {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="number"]:focus {
+    border-color: #90e0ef;
+    box-shadow: 0 0 10px #4895ef;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ====== TEXT ====== */
+.cash-text {
+    width: 75px;
+    text-align: right;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ====== BUTTON ====== */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(90deg, #7209b7, #4361ee);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #560bad, #4895ef);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+button.reset {
+    background: linear-gradient(90deg, #ff4d6d, #f72585);
+}
+
+button.reset:hover {
+    background: linear-gradient(90deg, #ff2d55, #b5179e);
+}
+
+/* ====== RESULT ====== */
+.result-part {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.total-words {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    font-size: 1rem;
+}

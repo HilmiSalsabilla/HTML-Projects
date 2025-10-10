@@ -1,0 +1,235 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Container Utama */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #2d3748;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(247, 250, 252, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Wrapper untuk setiap baris */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.wrapper:last-child {
+    margin-bottom: 0;
+}
+
+/* Label Styling */
+.lbl {
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+/* Value Display */
+.val {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1rem;
+    min-width: 60px;
+    text-align: right;
+}
+
+/* Input Box untuk Bill */
+.input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-box span {
+    color: #718096;
+    font-weight: 500;
+    margin-right: 0.25rem;
+}
+
+/* Input Number */
+.input-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d3748;
+    width: 100%;
+}
+
+.input-box input::placeholder {
+    color: #a0aec0;
+}
+
+/* Range Slider Styling */
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+    outline: none;
+    margin: 0.5rem 0 1rem 0;
+    cursor: pointer;
+}
+
+/* Webkit Slider Thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Mozilla Slider Thumb */
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #667eea;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* HR Styling */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+    margin: 1rem 0;
+}
+
+/* Highlight untuk hasil akhir */
+section:last-child {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+section:last-child .lbl {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+section:last-child .val {
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    section {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .wrapper {
+        margin-bottom: 0.5rem;
+    }
+    
+    .lbl, .val {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animasi smooth untuk transisi */
+* {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus states untuk accessibility */
+input:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Hover effects */
+section:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}

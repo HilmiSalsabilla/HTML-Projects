@@ -1,0 +1,183 @@
+/* =========================================
+   Global Reset & Typography
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+/* =========================================
+   Body Styling - Lembut & Menenangkan
+========================================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8f9ff;
+    background: linear-gradient(135deg, #4b0082, #6a0dad, #5b67f1, #4361ee);
+    background-size: 300% 300%;
+    animation: bgShift 15s ease infinite;
+}
+
+/* Gradasi bergerak halus */
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   Container / Card Style
+========================================= */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 40px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+    animation: fadeIn 1s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   Header
+========================================= */
+.header {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(165, 155, 255, 0.4);
+}
+
+/* =========================================
+   Cash Input Rows
+========================================= */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.row:hover {
+    transform: scale(1.04);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Note images */
+.row img {
+    width: 55px;
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+/* =========================================
+   Input Fields
+========================================= */
+input[type="number"] {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="number"]:focus {
+    border-color: #a5b4fc;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 12px rgba(120, 130, 255, 0.6);
+}
+
+/* Remove arrows in number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* =========================================
+   Value Text (per baris)
+========================================= */
+.cash-text {
+    width: 60px;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #eaeaff;
+}
+
+/* =========================================
+   Button
+========================================= */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #7b2cbf, #5a67d8);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #6b21a8, #4f46e5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(90, 80, 255, 0.4);
+}
+
+/* =========================================
+   Result Section
+========================================= */
+.result-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.total-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px rgba(160, 160, 255, 0.3);
+}
+
+.total-words {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(230, 230, 255, 0.85);
+}

@@ -1,0 +1,238 @@
+/* ==========================================================
+   PROFESSIONAL PROJECT DASHBOARD — MAROON THEME (v2)
+   ========================================================== */
+
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    transition: background 0.35s ease, color 0.35s ease, border 0.35s ease;
+}
+
+/* ===== Root Variables ===== */
+:root {
+    --maroon: #800000;
+    --maroon-light: #c04c4c;
+    --maroon-dark: #4b0000;
+    --accent: #ffbaba;
+
+    --light-bg: #f8f6f6;
+    --light-card: #ffffffcc;
+    --light-text: #1a1a1a;
+
+    --dark-bg: #140a0a;
+    --dark-card: #2a1414cc;
+    --dark-text: #f5f5f5;
+
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Body (Dark Default) ===== */
+body {
+    background: radial-gradient(circle at top left, var(--maroon-dark), var(--dark-bg) 70%);
+    color: var(--dark-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 40px;
+    overflow-x: hidden;
+    transition: background 0.4s ease;
+}
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    user-select: none;
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 10px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+    transition: transform 0.25s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Header ===== */
+header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+header h1 a {
+    color: var(--maroon-light);
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header h1 a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 14px var(--accent);
+}
+
+/* ===== Project List (Grid) ===== */
+.project-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 1100px;
+    padding-bottom: 40px;
+}
+
+/* ===== Project Card ===== */
+.project-list li {
+    background: var(--dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px var(--shadow-dark);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.25s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.project-list li:hover {
+    transform: translateY(-6px);
+    border-color: var(--maroon-light);
+    box-shadow: 0 8px 20px var(--shadow-dark);
+}
+
+/* ===== Project Link ===== */
+.project-list a {
+    display: block;
+    padding: 18px 22px;
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+.project-list a:hover {
+    color: var(--maroon-light);
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-top: auto;
+    color: var(--dark-text);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Light Mode ===== */
+body.light-mode {
+    background: radial-gradient(circle at top left, #fff1f1, var(--light-bg));
+    color: var(--light-text);
+}
+
+body.light-mode .theme-toggle {
+    color: var(--maroon-dark);
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 6px var(--shadow-light);
+}
+
+body.light-mode header h1 a {
+    color: var(--maroon);
+}
+
+body.light-mode .project-list li {
+    background: var(--light-card);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px var(--shadow-light);
+}
+
+body.light-mode .project-list li:hover {
+    border-color: var(--maroon);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .project-list a {
+    color: var(--light-text);
+}
+
+body.light-mode .project-list a:hover {
+    color: var(--maroon-dark);
+}
+
+body.light-mode footer {
+    color: var(--light-text);
+}
+
+/* ===== Fade-in Animation ===== */
+.project-list li {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.project-list li:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.project-list li:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    header h1 a {
+        font-size: 1.8rem;
+    }
+
+    .project-list {
+        gap: 16px;
+    }
+
+    .project-list a {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+    .theme-toggle {
+        top: 16px;
+        right: 18px;
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 50%, #e2ebf0 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0; translateY: (-20px);}
+    100% {opacity: 1; translateY: (0px);}
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2193b0;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccd9e2;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(-45deg, #2193b0 0%, #6dd5ed  100%);
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+.result-container {
+    display: none;
+    background-color: #f7fafd;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    0% {opacity: 0; translateY: (-10px);}
+    100% {opacity: 1; translateY: (0px);}
+}
+
+h2 {
+    color: #2193b0;
+}
+
+#word-desc {
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+#audio-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#audio-btn {
+    padding: 10px;
+    font-size: 22px;
+    background: linear-gradient(-45deg, #2193b0 0%, #6dd5ed 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+#audio-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
