@@ -35,16 +35,29 @@ const projects = [
 ];
 
 // ===== Render Projects =====
-const baseURL = "http://127.0.0.1:5500";
 const projectList = document.getElementById("projectList");
+
+// Detect environment (local or GitHub)
+let baseURL;
+
+if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+    // Local server (Live Server / VS Code)
+    baseURL = "http://127.0.0.1:5500";
+} else {
+    // Online (GitHub Pages / Repo structure)
+    baseURL = "https://hilmisalsabilla.github.io/html-projects";
+}
 
 projects.forEach(project => {
     const li = document.createElement("li");
     const a = document.createElement("a");
+
+    // Generate folder name safely
     const folderName = `${project.id}-${project.name.replace(/\s+/g, "-")}/`;
 
     a.href = `${baseURL}/${folderName}`;
     a.textContent = `${project.id}. ${project.name}`;
+    a.target = "_blank"; // buka di tab baru
 
     li.appendChild(a);
     projectList.appendChild(li);
