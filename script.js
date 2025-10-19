@@ -45,7 +45,7 @@ if (window.location.hostname === "127.0.0.1" || window.location.hostname === "lo
     baseURL = "http://127.0.0.1:5500";
 } else {
     // Online (GitHub Pages / Repo structure)
-    baseURL = "https://hilmisalsabilla.github.io/html-projects";
+    baseURL = "https://hilmisalsabilla.github.io/HTML-Projects";
 }
 
 projects.forEach(project => {
