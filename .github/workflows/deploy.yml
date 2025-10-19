@@ -1,4 +1,4 @@
-name: Deploy 0-All folder to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
@@ -21,6 +21,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,10 +29,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload site files from 0-All
+      - name: Upload site files from root
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./0-All
+          path: ./
 
       - name: Deploy to GitHub Pages
         id: deployment
