@@ -1,0 +1,29 @@
+name: Deploy 0-All folder to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # setiap kali ada commit/push ke branch main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload site files from 0-All
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./0-All  # lokasi folder yang ingin di-deploy
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
