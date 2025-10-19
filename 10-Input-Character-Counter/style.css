@@ -1,4 +1,4 @@
-/* Reset dan base styling */
+/* ===== Reset dan base styling ===== */
 * {
     margin: 0;
     padding: 0;
@@ -15,30 +15,28 @@ body {
     padding: 20px;
 }
 
-/* Container utama */
+/* ===== Container utama ===== */
 .container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    position: relative;
+    background: #ffffff;
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
     width: 100%;
     max-width: 500px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .container:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 25px 30px -5px rgba(0, 0, 0, 0.15),
-        0 15px 15px -5px rgba(0, 0, 0, 0.08);
+    transform: scale(1.03);
 }
 
-/* Judul */
+.container::before {
+    content: none;
+}
+
+/* ===== Judul ===== */
 h1 {
     color: #2d3748;
     font-size: 2.5rem;
@@ -51,7 +49,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Input field */
+/* ===== Input field ===== */
 #text-input {
     width: 100%;
     padding: 15px 20px;
@@ -78,7 +76,7 @@ h1 {
     font-style: italic;
 }
 
-/* Character count display */
+/* ===== Character count ===== */
 #char-count {
     font-size: 3rem;
     font-weight: 800;
@@ -95,7 +93,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Disclaimer text */
+/* ===== Disclaimer text ===== */
 .disclaimer {
     color: #718096;
     font-size: 0.9rem;
@@ -109,43 +107,43 @@ h1 {
     opacity: 1;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
+/* ===== Responsive design ===== */
+@media (max-width: 768px) {
     .container {
-        padding: 30px 20px;
-        margin: 10px;
+        padding: 2.5em 1.5em;
+        max-width: 90%;
     }
-    
+
     h1 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 1.8rem;
+        margin-bottom: 1.2em;
     }
-    
+
     #text-input {
         font-size: 1rem;
-        padding: 12px 15px;
+        padding: 0.9em 1em;
     }
-    
+
     #char-count {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 25px 15px;
+        padding: 2em 1.2em;
     }
-    
+
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
-    
+
     #char-count {
         font-size: 2rem;
     }
 }
 
-/* Animasi untuk loading dan interaksi */
+/* ===== Animasi masuk ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -155,27 +153,4 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.container {
-    animation: fadeIn 0.6s ease-out;
-}
-
-/* Efek visual tambahan */
-.container::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, #667eea, #764ba2, #667eea);
-    border-radius: 22px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.container:hover::before {
-    opacity: 0.7;
 }

@@ -5,16 +5,20 @@ html, body {
     place-items: center;
     text-align: center;
     background: #d8d4d4;
+    margin: 0;
+    padding: 0;
 }
 
+/* Wrapper utama */
 .wrapper {
     position: relative;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     background: #111;
-    padding: 50px 90px;
+    padding: 40px 60px;
     border: 1px solid #444;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px;
     display: flex;
     align-items: center;
@@ -22,6 +26,7 @@ html, body {
     flex-direction: column;
 }
 
+/* Hasil rating */
 .post {
     display: none;
 }
@@ -32,6 +37,7 @@ html, body {
     font-weight: 500;
 }
 
+/* Tombol Edit dan Rate */
 .edit,
 .btn button {
     display: inline-block;
@@ -43,8 +49,16 @@ html, body {
     border-radius: 5px;
     margin-top: 10px;
     font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.edit:hover,
+.btn button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+}
+
+/* Bintang rating */
 .star-widget input {
     display: none;
 }
@@ -66,26 +80,24 @@ input:checked ~ label {
     color: #fd4;
 }
 
+/* Teks hasil rating */
 #rate-1:checked ~ form header::before {
     content: "I hated it!";
 }
-
 #rate-2:checked ~ form header::before {
     content: "I didn't like it!";
 }
-
 #rate-3:checked ~ form header::before {
-    content: "It's an avarage!";
+    content: "It's an average!";
 }
-
 #rate-4:checked ~ form header::before {
     content: "I liked it!";
 }
-
 #rate-5:checked ~ form header::before {
     content: "I loved it!";
 }
 
+/* Form */
 .wrapper form {
     display: none;
 }
@@ -109,4 +121,59 @@ form .btn button {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 30px 40px;
+    }
+
+    .star-widget label {
+        font-size: 34px;
+        padding: 8px;
+    }
+
+    .text {
+        font-size: 22px;
+    }
+
+    form header {
+        font-size: 22px;
+    }
+
+    .edit,
+    .btn button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 95%;
+        padding: 25px 20px;
+    }
+
+    .star-widget label {
+        font-size: 28px;
+        padding: 6px;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    form header {
+        font-size: 20px;
+    }
+
+    .edit,
+    .btn button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
 }

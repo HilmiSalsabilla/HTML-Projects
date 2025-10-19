@@ -1,111 +1,102 @@
+/* ========== RESET ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ========== BASE STYLING ========== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #6cd0bc 0%, #d3a80d 100%);
     min-height: 100vh;
-    padding: 20px;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    overflow-x: hidden;
 }
 
+/* ========== CONTAINER ========== */
 .container {
-    max-width: 1200px;
-    width: 100%;
-    /* margin: 0 auto; */
     display: grid;
     grid-template-columns: 1fr 400px;
-    gap: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
 }
 
+/* ========== PREVIEW / RESULT ========== */
 .result {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
-    padding: 60px;
-    min-height: 500px;
+    padding: 3rem;
+    min-height: 400px;
+    transition: all 0.3s ease;
 }
 
 #element {
-    width: 200px;
-    height: 200px;
+    width: clamp(120px, 20vw, 220px);
+    height: clamp(120px, 20vw, 220px);
     border: 1px solid #333;
     background: #fff;
-    /* background: linear-gradient(45deg, #6cd0bc, #d3a80d); */
-    /* border-radius: 15px; */
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
+/* ========== CONTROL PANEL ========== */
 .sliders {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
-    padding: 25px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
+/* ========== SLIDER & INPUT WRAPPERS ========== */
 .slider-wrapper,
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .slider-wrapper label,
 .input-wrapper label {
     font-weight: 600;
     color: #4a5568;
-    font-size: 14px;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
+/* ========== RANGE SLIDER ========== */
 .slider-wrapper input[type="range"] {
-    -webkit-appearance: none;
     appearance: none;
     height: 6px;
     background: #e2e8f0;
     border-radius: 3px;
     outline: none;
+    cursor: pointer;
     transition: background 0.3s ease;
 }
-
 .slider-wrapper input[type="range"]:hover {
     background: #cbd5e0;
 }
-
-.slider-wrapper input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(45deg, #6cd0bc, #d3a80d);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
-}
-
-.slider-wrapper input[type="range"]::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
-}
-
+.slider-wrapper input[type="range"]::-webkit-slider-thumb,
 .slider-wrapper input[type="range"]::-moz-range-thumb {
+    appearance: none;
     width: 20px;
     height: 20px;
     background: linear-gradient(45deg, #6cd0bc, #d3a80d);
@@ -115,11 +106,12 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
 }
-
+.slider-wrapper input[type="range"]::-webkit-slider-thumb:hover,
 .slider-wrapper input[type="range"]::-moz-range-thumb:hover {
     transform: scale(1.1);
 }
 
+/* ========== COLOR PICKER ========== */
 .slider-wrapper input[type="color"] {
     width: 100%;
     height: 40px;
@@ -129,17 +121,16 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
 }
-
 .slider-wrapper input[type="color"]:hover {
     transform: translateY(-1px);
 }
 
+/* ========== CHECKBOX WRAPPER ========== */
 .input-wrapper {
     flex-direction: row;
     align-items: center;
     gap: 12px;
 }
-
 .input-wrapper input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -147,44 +138,42 @@ body {
     cursor: pointer;
 }
 
+/* ========== CODE WRAPPER ========== */
 .code-wrapper {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.75rem;
 }
-
 .code-wrapper label {
     font-weight: 600;
     color: #4a5568;
-    font-size: 14px;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
 #code {
     width: 100%;
-    padding: 15px;
+    padding: 1rem;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
     font-family: 'Courier New', monospace;
     font-size: 13px;
     background: #f7fafc;
-    resize: vertical;
     min-height: 60px;
     color: #2d3748;
+    resize: vertical;
     transition: border-color 0.3s ease;
 }
-
 #code:focus {
     outline: none;
     border-color: #6cd0bc;
 }
 
+/* ========== BUTTON ========== */
 .code-wrapper button {
     padding: 12px 24px;
     background: linear-gradient(-45deg, #6cd0bc, #d3a80d);
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -195,59 +184,48 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
-
 .code-wrapper button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
-
 .code-wrapper button:active {
     transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 992px) {
     .container {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
-    
     .result {
-        padding: 40px 20px;
-        min-height: 300px;
+        padding: 2rem;
+        min-height: 350px;
     }
-    
     #element {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .sliders {
-        padding: 20px;
+        width: 160px;
+        height: 160px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     body {
-        padding: 10px;
+        padding: 1rem;
     }
-    
     .container {
-        padding: 15px;
+        padding: 1rem;
+        gap: 1rem;
     }
-    
     .result {
-        padding: 30px 15px;
+        padding: 1.5rem;
         min-height: 250px;
     }
-    
     #element {
         width: 120px;
         height: 120px;
     }
-    
     .sliders {
-        gap: 15px;
+        gap: 1rem;
     }
 }

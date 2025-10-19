@@ -1,7 +1,11 @@
+/* ===============================
+   ✨ Live Word Counter - Optimized
+   =============================== */
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Reset and base styles */
+/* ===== Reset dan Base Styles ===== */
 * {
     margin: 0;
     padding: 0;
@@ -15,34 +19,39 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 2rem;
     color: #333;
 }
 
-/* Main wrapper */
+/* ===== Wrapper Utama ===== */
 .wrapper {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    border-radius: 1.25rem;
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
     width: 100%;
     max-width: 600px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Container for textarea */
+.wrapper:hover {
+    transform: scale(1.01);
+}
+
+/* ===== Container Textarea ===== */
 .container {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
-/* Textarea styles */
+/* ===== Textarea ===== */
 #input-textarea {
     width: 100%;
     border: 2px solid #e1e8ed;
-    border-radius: 12px;
-    padding: 20px;
-    font-size: 16px;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    font-size: 1rem;
     font-family: inherit;
     line-height: 1.6;
     resize: vertical;
@@ -55,7 +64,7 @@ body {
 
 #input-textarea:focus {
     border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
     background: #fff;
 }
 
@@ -64,22 +73,23 @@ body {
     font-weight: 400;
 }
 
-/* Count container */
+/* ===== Count Container ===== */
 .count {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1.25rem;
     justify-content: center;
 }
 
-/* Individual count boxes */
+/* ===== Count Box ===== */
 .count-box {
-    flex: 1;
+    flex: 1 1 45%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 25px 20px;
-    border-radius: 16px;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -88,32 +98,29 @@ body {
 .count-box::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     pointer-events: none;
 }
 
 .count-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 0.75rem 2rem rgba(102, 126, 234, 0.4);
 }
 
-/* Count numbers */
+/* ===== Count Number ===== */
 .count-box h5 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
 }
 
-/* Count labels */
+/* ===== Count Label ===== */
 .count-box p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -122,34 +129,49 @@ body {
     z-index: 1;
 }
 
-/* Responsive design */
-@media (max-width: 480px) {
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
     .wrapper {
-        padding: 25px;
-        margin: 10px;
+        padding: 2rem;
     }
-    
-    .count {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
+
     .count-box {
-        padding: 20px 15px;
+        flex: 1 1 100%;
     }
-    
+
     .count-box h5 {
         font-size: 2rem;
     }
-    
+
     #input-textarea {
-        padding: 15px;
-        font-size: 14px;
-        min-height: 150px;
+        padding: 1rem;
+        font-size: 0.95rem;
+        min-height: 160px;
     }
 }
 
-/* Animation for count updates */
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 1.5rem;
+    }
+
+    .count {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .count-box h5 {
+        font-size: 1.8rem;
+    }
+
+    #input-textarea {
+        padding: 0.9rem;
+        font-size: 0.9rem;
+        min-height: 140px;
+    }
+}
+
+/* ===== Animasi Count Update ===== */
 @keyframes countUpdate {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -160,13 +182,13 @@ body {
     animation: countUpdate 0.3s ease;
 }
 
-/* Focus styles for accessibility */
+/* ===== Aksesibilitas ===== */
 .count-box:focus-within {
     outline: 2px solid #667eea;
     outline-offset: 2px;
 }
 
-/* Custom scrollbar for textarea */
+/* ===== Custom Scrollbar ===== */
 #input-textarea::-webkit-scrollbar {
     width: 8px;
 }

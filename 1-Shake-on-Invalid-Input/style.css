@@ -1,3 +1,7 @@
+/* ==========================================================
+   Responsive Form — Blue Gradient Theme (Optimized)
+   ========================================================== */
+
 /* Reset dan Base Styles */
 * {
     margin: 0;
@@ -8,7 +12,7 @@
 
 body {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +20,7 @@ body {
     color: #333;
 }
 
-/* Form Container */
+/* ===== Form Container ===== */
 form {
     background: #ffffff;
     padding: 30px 25px;
@@ -28,9 +32,10 @@ form {
     max-width: 400px;
     position: relative;
     animation: fadeIn 0.6s ease;
+    transition: all 0.3s ease;
 }
 
-/* Input Field Styling */
+/* ===== Input Field Styling ===== */
 #inputField {
     width: 100%;
     padding: 14px 18px;
@@ -54,7 +59,7 @@ form {
     font-weight: 400;
 }
 
-/* Button Styling */
+/* ===== Button Styling ===== */
 button {
     width: 100%;
     padding: 14px;
@@ -84,7 +89,7 @@ button:focus {
     outline-offset: 3px;
 }
 
-/* Error Message Styling */
+/* ===== Error Message Styling ===== */
 .error-message {
     background: linear-gradient(135deg, #4a90e2, #1e3c72);
     color: white;
@@ -106,17 +111,11 @@ button:focus {
     transform: translateY(0);
 }
 
-/* Shake Animation */
+/* ===== Animations ===== */
 @keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-8px);
-    }
-    20%, 40%, 60%, 80% {
-        transform: translateX(8px);
-    }
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+    20%, 40%, 60%, 80% { transform: translateX(8px); }
 }
 
 @keyframes fadeIn {
@@ -130,25 +129,75 @@ button:focus {
     box-shadow: 0 0 0 6px rgba(74, 144, 226, 0.3) !important;
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
+/* ===== Responsive Design ===== */
+
+/* --- Tablet Landscape & Small Desktop --- */
+@media (max-width: 1024px) {
+    body {
+        padding: 40px;
+    }
+
     form {
-        padding: 25px 18px;
+        max-width: 420px;
+        padding: 28px 24px;
+    }
+
+    button, #inputField {
+        font-size: 15px;
+    }
+}
+
+/* --- Tablet Portrait & Large Phones --- */
+@media (max-width: 768px) {
+    body {
+        padding: 30px;
+    }
+
+    form {
+        max-width: 380px;
+        padding: 26px 20px;
+    }
+
+    #inputField, button {
+        font-size: 14px;
+        padding: 13px 16px;
+    }
+
+    .error-message {
+        font-size: 13px;
+        padding: 10px 16px;
+    }
+}
+
+/* --- Small Phones (≤480px) --- */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    form {
+        padding: 22px 16px;
         margin: 10px;
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
     }
 
     #inputField, button {
         padding: 12px 14px;
-        font-size: 14px;
+        font-size: 13.5px;
     }
-    
+
     .error-message {
-        padding: 10px 14px;
-        font-size: 13px;
+        padding: 9px 14px;
+        font-size: 12.5px;
+    }
+
+    button {
+        letter-spacing: 0.8px;
     }
 }
 
-/* Loading state (opsional untuk pengembangan future) */
+/* ===== Loading State ===== */
 .loading {
     opacity: 0.7;
     pointer-events: none;
@@ -159,7 +208,7 @@ button:focus {
     display: inline-block;
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(255,255,255,.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin 1s ease-in-out infinite;

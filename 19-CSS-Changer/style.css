@@ -1,9 +1,11 @@
+/* ===== Reset ===== */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* ===== CSS Variables ===== */
 :root {
     --padding: 20px;
     --blur: 0px;
@@ -12,6 +14,7 @@
     --border-radius: 15px;
 }
 
+/* ===== Body ===== */
 body {
     display: flex;
     align-items: center;
@@ -21,10 +24,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #cfd9df, #e2ebf0);
     color: #333;
+    padding: 1rem;
 }
 
+/* ===== Container ===== */
 .container {
-    max-width: 600px;
+    width: 100%;
+    max-width: 700px;
     border-radius: 20px;
     background: linear-gradient(135deg, #ffffff, #f2f6fc);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -32,6 +38,7 @@ body {
     text-align: center;
 }
 
+/* ===== Headings ===== */
 h1 {
     font-size: 1.8rem;
     color: #444;
@@ -46,6 +53,7 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+/* ===== Controller Section ===== */
 .css-controller {
     display: flex;
     flex-direction: column;
@@ -55,14 +63,14 @@ h1 {
 
 label {
     text-align: left;
-    /* padding-left: 1rem; */
     font-size: 0.95rem;
     color: #555;
-    margin-bottom: 0.2rem;
 }
 
+/* ===== Image ===== */
 img {
     width: var(--width);
+    max-width: 100%;
     height: auto;
     margin-top: 1rem;
     padding: var(--padding);
@@ -72,33 +80,28 @@ img {
     transition: all 0.3s ease;
 }
 
+/* ===== Input Color ===== */
 input[type="color"] {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
+    /* border-radius: 50%; */
+    border: 1px solid #ddd;
     cursor: pointer;
     padding: 0;
 }
 
-.css-controller input[type="color"]::-webkit-color-swatch {
-    border: none;
-    border: 50%;
-}
-
-.css-controller input[type="color"]::-webkit-color-swatch-wrapper {
-   padding: 0;
-}
-
+.css-controller input[type="color"]::-webkit-color-swatch,
 .css-controller input[type="color"]::-moz-color-swatch {
     border: none;
     border: 50%;
 }
 
+.css-controller input[type="color"]::-webkit-color-swatch-wrapper,
 .css-controller input[type="color"]::-moz-color-swatch-wrapper {
-   padding: 0;
+    padding: 0;
 }
 
+/* ===== Input Range ===== */
 .css-controller input[type="range"] {
     width: 100%;
     appearance: none;
@@ -117,7 +120,7 @@ input[type="range"]::-webkit-slider-thumb {
     background: var(--base);
     border-radius: 50%;
     border: 2px solid #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
 }
 
@@ -132,4 +135,71 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     border: 2px solid #fff;
     cursor: pointer;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .heading {
+        font-size: 1.3rem;
+    }
+
+    input[type="color"] {
+        width: 35px;
+        height: 35px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb,
+    input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Mobile (max 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .heading {
+        font-size: 1.1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input[type="color"] {
+        width: 30px;
+        height: 30px;
+    }
+
+    input[type="range"] {
+        height: 5px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb,
+    input[type="range"]::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+    }
+
+    img {
+        width: 100%;
+    }
 }

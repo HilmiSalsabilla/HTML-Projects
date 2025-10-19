@@ -1,4 +1,8 @@
-/* Reset dan base styles */
+/* ======================================================
+   🎨 Blob Maker — Fully Responsive & Smooth Animation
+   ====================================================== */
+
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -16,52 +20,56 @@ body {
     padding: 20px;
 }
 
-/* Main wrapper */
+/* Main Container */
 .wrapper {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
     width: 100%;
+    max-width: 520px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Blob preview section */
+.wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Output Section */
 .output {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
     min-height: 200px;
     background: linear-gradient(45deg, #f0f2f5, #ffffff);
     border-radius: 15px;
     border: 2px dashed #e1e5e9;
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .output::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
+    inset: 0;
+    background:
         radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
 }
 
+/* Blob */
 .blob {
     background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
     background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: gradientShift 8s ease infinite, float 5s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 @keyframes gradientShift {
@@ -70,7 +78,38 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Dimensions section */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.blob::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: shine 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Dimension Inputs */
 .dimensions {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -98,7 +137,6 @@ body {
     border: 2px solid #e1e5e9;
     border-radius: 10px;
     font-size: 16px;
-    font-weight: 500;
     background: #ffffff;
     transition: all 0.3s ease;
     color: #2c3e50;
@@ -111,7 +149,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Sliders section */
+/* Sliders */
 .sliders {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,19 +162,16 @@ body {
 }
 
 .sliders input[type="range"] {
-    -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: 6px;
     border-radius: 3px;
-    background: linear-gradient(to right, #e9ecef, #e9ecef);
+    background: #e9ecef;
     outline: none;
-    transition: all 0.3s ease;
 }
 
 .sliders input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -152,17 +187,7 @@ body {
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.sliders input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ea8562, #d3df2a);
-    cursor: pointer;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-/* CSS output section */
+/* CSS Code Output */
 #css-code {
     width: 100%;
     padding: 15px;
@@ -173,8 +198,6 @@ body {
     background: #f8f9fa;
     color: #2c3e50;
     resize: none;
-    margin-bottom: 0;
-    transition: all 0.3s ease;
     line-height: 1.5;
 }
 
@@ -184,6 +207,7 @@ body {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+/* Copy Button */
 #copy {
     width: 100%;
     padding: 15px;
@@ -194,9 +218,9 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
 #copy:hover {
@@ -205,72 +229,47 @@ body {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
-#copy:active {
-    transform: translateY(0);
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .wrapper {
-        padding: 20px;
-        margin: 10px;
+        padding: 25px;
+        max-width: 90%;
     }
-    
-    .dimensions {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
+
     .sliders {
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 15px;
     }
-    
-    .output {
-        min-height: 150px;
-        margin-bottom: 20px;
+
+    .dimensions {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .blob {
+        width: 180px !important;
+        height: 180px !important;
     }
 }
 
-/* Hover effects dan animasi tambahan */
-.wrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-}
-
-.field input[type="number"]:hover {
-    border-color: #ea8562;
-}
-
-/* Loading animation untuk blob */
-.blob {
-    position: relative;
-    overflow: hidden;
-}
-
-.blob::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    animation: shine 3s infinite;
-    pointer-events: none;
-}
-
-@keyframes shine {
-    0% {
-        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
     }
-    100% {
-        transform: translateX(100%) translateY(100%) rotate(45deg);
+
+    .wrapper {
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    #copy {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .field input[type="number"] {
+        font-size: 14px;
+        padding: 10px;
     }
 }

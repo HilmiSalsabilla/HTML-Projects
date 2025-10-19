@@ -1,9 +1,11 @@
+/* ========== RESET ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ========== BODY ========== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
@@ -11,34 +13,36 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    /* padding: 4vw; */
 }
 
-/* Card calculator */
+/* ========== CALCULATOR CARD ========== */
 .calculator {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    max-width: 380px;
+    padding: 2rem;
     width: 100%;
+    max-width: 420px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     animation: fadeIn 0.6s ease-out;
 }
 
+/* ========== TITLE ========== */
 h1 {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
+/* ========== INPUT SECTION ========== */
 .input-section {
-    margin-bottom: 18px;
+    margin-bottom: 1.2rem;
     border-radius: 8px;
-    padding: 6px;
+    padding: 0.5rem;
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -47,14 +51,16 @@ h1 {
     background: rgba(33, 147, 176, 0.05);
 }
 
+/* ========== LABEL ========== */
 label {
     display: block;
     color: #34495e;
     font-weight: 500;
-    margin-bottom: 6px;
+    margin-bottom: 0.4rem;
     font-size: 1rem;
 }
 
+/* ========== RANGE SLIDER ========== */
 input[type="range"] {
     appearance: none;
     width: 100%;
@@ -64,7 +70,7 @@ input[type="range"] {
     outline: none;
     cursor: pointer;
     margin-bottom: 8px;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease;
 }
 
 input[type="range"]:hover {
@@ -72,7 +78,7 @@ input[type="range"]:hover {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
+    -webkit-appearance: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -85,17 +91,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.15);
-    border: 3px solid #6dd5ed;
+    border-color: #6dd5ed;
 }
 
-input[type="range"]::-webkit-slider-track {
-    width: 100%;
-    height: 6px;
-    cursor: pointer;
-    background: #ddd;
-    border-radius: 5px;
-}
-
+/* Firefox support */
 input[type="range"]::-moz-range-track {
     height: 6px;
     border-radius: 4px;
@@ -115,36 +114,38 @@ input[type="range"]::-moz-range-thumb {
 
 input[type="range"]::-moz-range-thumb:hover {
     transform: scale(1.15);
-    border: 3px solid #6dd5ed;
+    border-color: #6dd5ed;
 }
 
+/* ========== BADGE (SPAN) ========== */
 span {
     display: inline-block;
     background: linear-gradient(135deg, #6dd5ed, #2193b0);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 12px;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
     text-align: center;
     box-shadow: 0 2px 6px rgba(33, 147, 176, 0.25);
 }
 
+/* ========== BUTTON ========== */
 button {
     width: 100%;
     background: linear-gradient(135deg, #6dd5ed, #2193b0);
-    color: white;
+    color: #fff;
     border: none;
-    padding: 12px;
+    padding: 0.75rem;
     border-radius: 10px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    margin: 20px 0;
+    margin: 1.2rem 0;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
@@ -157,9 +158,10 @@ button:active {
     box-shadow: 0 2px 8px rgba(33, 147, 176, 0.4);
 }
 
+/* ========== OUTPUT SECTION ========== */
 .output-section {
     background: #f9fcff;
-    padding: 15px;
+    padding: 1rem;
     border-radius: 12px;
     border: 1px solid rgba(33, 147, 176, 0.15);
     box-shadow: inset 0 2px 6px rgba(33, 147, 176, 0.05);
@@ -185,12 +187,7 @@ button:active {
     margin-top: 10px;
 }
 
-.output-section span {
-    background: linear-gradient(135deg, #6dd5ed, #2193b0);
-    font-size: 0.9rem;
-}
-
-/* Animasi masuk */
+/* ========== ANIMATION ========== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -202,25 +199,43 @@ button:active {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 6vw;
+    }
+
     .calculator {
-        padding: 25px;
-        margin: 10px;
+        padding: 1.5rem;
     }
-    
+
     h1 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
+        font-size: 1.5rem;
     }
-    
+
+    button {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
     .output-section p {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
     }
-    
-    .output-section span {
+
+    span {
         align-self: flex-end;
     }
 }

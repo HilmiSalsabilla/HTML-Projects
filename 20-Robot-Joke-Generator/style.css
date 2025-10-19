@@ -1,3 +1,8 @@
+/* =========================
+   🎨 ROBOT JOKE GENERATOR
+   Fully Responsive (No clamp)
+   ========================= */
+
 :root {
     --accent-color: #6c63ff;
     --accent-hover: #4b47cc;
@@ -7,32 +12,45 @@
     --robot-color: #ffde59;
 }
 
+/* ========== Base Layout ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--background-gradient);
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    align-items: center;
+    min-height: 100vh;
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
+/* ========== Container ========== */
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 600px;
+    min-height: 500px;
     height: 80vh;
-    width: 40vw;
-    max-width: 900px;
-    min-width: 320px;
-    max-height: 80%;
-    margin: auto;
-    padding: 30px;
+    padding: 25px;
+    margin: 20px;
     animation: fadeIn 0.7s ease;
     backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02);
 }
 
 @keyframes fadeIn {
@@ -46,10 +64,14 @@ body {
     }
 }
 
+/* ========== Header ========== */
 .header {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 20px;
+    text-align: center;
     color: var(--robot-color);
 }
 
@@ -74,17 +96,17 @@ body {
 
 .header h3 {
     margin-left: 15px;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 600;
-    color: var(--robot-color);
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* ========== Chat Area ========== */
 .chat {
-    background-color: var(--chatbox-color);
     flex: 1;
-    padding: 15px;
+    background-color: var(--chatbox-color);
     border-radius: 15px;
+    padding: 15px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) transparent;
@@ -99,13 +121,14 @@ body {
     border-radius: 10px;
 }
 
+/* ========== Message Bubble ========== */
 .message {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.5;
     width: fit-content;
     max-width: 80%;
     margin: 12px 10px;
-    padding: 15px 20px;
+    padding: 12px 18px;
     border-radius: 20px;
     animation: slideIn 0.4s ease;
 }
@@ -129,12 +152,12 @@ body {
 
 .message.response {
     background: #f1f1f1;
+    color: #000;
     border-top-right-radius: 0;
     margin-left: auto;
-    color: #000;
 }
 
-/* Typing animation */
+/* ========== Typing Animation ========== */
 .typing {
     display: flex;
     gap: 6px;
@@ -168,16 +191,17 @@ body {
     }
 }
 
+/* ========== Button ========== */
 .btn {
     background: var(--accent-color);
     color: #fff;
     font-family: inherit;
     font-weight: 600;
-    border: 0;
+    border: none;
     border-radius: 30px;
-    padding: 14px 40px;
-    margin: 20px;
-    font-size: 18px;
+    padding: 14px 36px;
+    margin-top: 20px;
+    font-size: 1rem;
     cursor: pointer;
     align-self: center;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
@@ -193,23 +217,13 @@ body {
     transform: scale(0.95);
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-    .container {
-        width: 60vw;
-        height: 75vh;
-    }
-}
-
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
     .container {
-        width: 80vw;
-        height: 75vh;
+        width: 95%;
+        height: auto;
+        min-height: 85vh;
         padding: 20px;
-    }
-
-    .header h3 {
-        font-size: 22px;
     }
 
     .avatar {
@@ -217,40 +231,50 @@ body {
         height: 50px;
     }
 
+    .header h3 {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .chat {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
     .btn {
-        font-size: 16px;
+        font-size: 0.95rem;
         padding: 12px 30px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 0;
-    }
-
     .container {
-        width: 95vw;
-        height: 85vh;
+        width: 95%;
+        height: auto;
+        min-height: 90vh;
         padding: 15px;
     }
 
     .header {
         flex-direction: column;
-        text-align: center;
+        margin-bottom: 15px;
     }
 
     .header h3 {
         margin: 10px 0 0;
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .chat {
-        font-size: 14px;
+    .message {
+        font-size: 0.9rem;
+        max-width: 90%;
+        padding: 10px 15px;
     }
 
     .btn {
         width: 100%;
+        font-size: 1rem;
         padding: 12px;
-        font-size: 16px;
+        margin-top: 15px;
     }
 }
