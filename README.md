@@ -59,6 +59,11 @@ Every project is built from scratch without using any external frameworks.
 
 ---
 
+## 🕸️ Github Actions
+[https://hilmisalsabilla.github.io/HTML-Projects/]
+
+---
+
 ## 🖼️ Project Preview Gallery
 
 Here’s a visual snapshot of some featured projects 👇  
@@ -99,11 +104,6 @@ Here’s a visual snapshot of some featured projects 👇
 
 ## 🌙 Dashboard Theme
 The project dashboard features a **Maroon-inspired professional theme** with a **Dark/Light mode toggle**, designed to resemble a modern developer control panel.
-
----
-
-## 🕸️ Github Actions
-[https://hilmisalsabilla.github.io/HTML-Projects/]
 
 ---
 
